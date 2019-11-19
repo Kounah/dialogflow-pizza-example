@@ -9,7 +9,7 @@ class Config {
    */
   constructor(props) {
 
-    this.mongodbuurl = props.mongodburl;
+    this.mongodburl = props.mongodburl;
 
   }
 }

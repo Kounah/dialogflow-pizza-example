@@ -1,3 +1,10 @@
 const mongoose = require('mongoose');
 
-return mongoose.createConnection()
+function connection(url) {
+  return mongoose.createConnection(url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+}
+
+module.exports = connection;

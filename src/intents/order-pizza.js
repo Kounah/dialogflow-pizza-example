@@ -44,9 +44,9 @@ function createHandler(connection) {
    */
   function handler(agent) {
     return Promise.resolve(createPizza(agent, {
-      kind = agent.parameters['pizza-kind'],
-      size = agent.parameters['pizza-size'],
-      extras = agent.parameters['pizza-extras']
+      kind: agent.parameters['pizza-kind'],
+      size: agent.parameters['pizza-size'],
+      extras: agent.parameters['pizza-extras']
     }))
   }
 

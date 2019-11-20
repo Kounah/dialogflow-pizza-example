@@ -18,18 +18,27 @@ function createHandler(connection) {
   async function createPizza(agent, props) {
     try {
       let created = await model.create(props);
+      let configured = agent.getContext('pizza-configured');
+
+      let pizzas = [];
+      if(typeof configured === 'object' && configured !== null) {
+        if(typeof configured.parameters === 'object' && configured.parameters !== null) {
+          if(Array.isArray(configured.parameters.pizzas))
+            pizzas = configured.parameters.pizzas;
+        }
+      }
+
+      pizzas.push(String(created._id));
+
       agent.setContext({
         name: 'pizza-configured',
-        lifespan: 2,
+        lifespan: 5,
         parameters: {
-          pizza: Object.entries(created)
-            .filter(e => typeof e[1] !== 'function')
-            .reduce((p, c) => {
-              p[c[0]] = c[1];
-              return p;
-            }, {})
+          pizzas: pizzas
         }
-      })
+      });
+
+      agent.add(`Ich habe eine Pizza ${created.kind}, ${created.size} für ${pizza.price(created)/100}€ zu deiner Bestellung hinzugefügt.`);
     } catch(err) {
       agent.add([
         'Deine Pizza konnte nicht erstellt werden.',

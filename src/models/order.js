@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const schema = new mongoose.Schema({
-  pizza: {
-    type: mongoose.Schema.Types.ObjectId,
+  pizzas: {
+    type: [mongoose.Schema.Types.ObjectId],
     ref: 'pizza',
     required: true
   },
@@ -10,10 +10,9 @@ const schema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  customer: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'customer',
-    required: true
+  address: {
+    type: String,
+    required: false
   }
 }, {
   timestamps: {

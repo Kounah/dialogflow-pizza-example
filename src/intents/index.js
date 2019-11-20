@@ -1,5 +1,7 @@
-let orderPizza = require('./order-pizza');
-let connection = require('../connection');
+const orderPizza = require('./order-pizza');
+const completeOrder = require('./complete-order');
+const completeOrderFinish = require('./complete-order-finish');
+const connection = require('../connection');
 
 /**
  * 
@@ -8,7 +10,9 @@ let connection = require('../connection');
 function createIntents(config) {
   let conn = connection(config.mongodburl);
   return {
-    'Order Pizza': orderPizza(conn)
+    'Order Pizza': orderPizza(conn),
+    'Complete Order': completeOrder(conn),
+    'Complete Order - Finish': completeOrderFinish(conn),
   }
 };
 

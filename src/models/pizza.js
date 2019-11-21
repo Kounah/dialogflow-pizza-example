@@ -27,9 +27,9 @@ const schema = new mongoose.Schema({
 
 const prices = require('../prices');
 
-function price(pizza) {
+function price(p) {
   try {
-    return prices[pizza.size] * (prices.base + prices[pizza.kind] + prices[pizza.extras]);
+    return prices[p.size] * (prices.base + prices[p.kind] + prices[p.extras]);
   } catch(err) {
     console.log(err);
     return 0;

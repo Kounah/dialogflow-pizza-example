@@ -21,7 +21,7 @@ function createHandler(connection) {
 
       let created = await model.create(props);
 
-      console.log('created pizza', pizza);
+      console.log('created pizza', created);
 
       let configured = agent.getContext('pizza-configured');
 

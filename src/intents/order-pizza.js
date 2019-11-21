@@ -47,6 +47,7 @@ function createHandler(connection) {
 
       agent.add(`Ich habe eine Pizza ${created.kind}, ${created.size} für ${pizza.price(created)/100}€ zu deiner Bestellung hinzugefügt.`);
     } catch(err) {
+      console.error(err);
       agent.add([
         'Deine Pizza konnte nicht erstellt werden.',
         err.toString()

@@ -2,7 +2,7 @@
 'use stict';
 
 let intents = require('./')({
-  mongodburl: 'mongodb://127.0.0.1:27017/pizza-example'
+  mongodburl: 'mongodb://localhost:27017/pizza-example'
 });
 
 console.log(intents);

@@ -22,7 +22,7 @@ const extras = {
   'ohne käse': -50,
   'extra käse': 50,
   'extra scharf': 25,
-  'Ohne Extras': 0
+  'Keine Extras': 0,
 }
 
 module.exports = {

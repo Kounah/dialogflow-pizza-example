@@ -19,6 +19,9 @@ function wrapHandler(name, fn) {
  */
 function createIntents(config) {
   let conn = connection(config.mongodburl);
+
+  console.log(conn);
+
   return {
     'Order Pizza': wrapHandler('Order Pizza', orderPizza(conn)),
     'Complete Order': wrapHandler('Complete Order', completeOrder(conn)),

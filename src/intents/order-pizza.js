@@ -17,8 +17,15 @@ function createHandler(connection) {
    */
   async function createPizza(agent, props) {
     try {
+      console.log('trying to create pizza');
+
       let created = await model.create(props);
+
+      console.log('created pizza', pizza);
+
       let configured = agent.getContext('pizza-configured');
+
+      console.log('got contenxt:', configured);
 
       let pizzas = [];
       if(typeof configured === 'object' && configured !== null) {

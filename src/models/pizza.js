@@ -29,10 +29,9 @@ const prices = require('../prices');
 
 function price(p) {
   try {
-    console.log('pizza:', p);
-    console.log('size:', prices[p.size], 'base:', prices.base, 'kind:', prices[p.kind], 'extras:', prices[p.extras]);
+    console.log('size:', prices.size[p.size], 'base:', prices.base, 'kind:', prices.kind[p.kind], 'extras:', prices.extras[p.extras]);
 
-    return prices[p.size] * (prices.base + prices[p.kind] + prices[p.extras]);
+    return prices.size[p.size] * (prices.base + prices.kind[p.kind] + prices.extras[p.extras]);
   } catch(err) {
     console.log(err);
     return 0;
